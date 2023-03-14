@@ -1,0 +1,42 @@
+{
+  "version": 1,
+  "author": "Daffa Aqila Rahmatullah",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-esp32-devkit-v1", "id": "esp", "top": -4, "left": -122.67, "attrs": {} },
+    {
+      "type": "wokwi-resistor",
+      "id": "r1",
+      "top": -1.25,
+      "left": 67.59,
+      "attrs": { "value": "1000" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r2",
+      "top": 50.35,
+      "left": 92.52,
+      "attrs": { "value": "1000" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r3",
+      "top": 82.62,
+      "left": 69.46,
+      "attrs": { "value": "1000" }
+    },
+    { "type": "wokwi-rgb-led", "id": "rgb1", "top": -73.4, "left": 176.38, "attrs": {} }
+  ],
+  "connections": [
+    [ "esp:TX0", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX0", "$serialMonitor:TX", "", [] ],
+    [ "esp:D21", "r1:1", "red", [ "h0" ] ],
+    [ "esp:D19", "r2:1", "green", [ "h0" ] ],
+    [ "esp:D18", "r3:1", "blue", [ "h0" ] ],
+    [ "r1:2", "rgb1:R", "red", [ "v0" ] ],
+    [ "rgb1:G", "r2:2", "green", [ "v0" ] ],
+    [ "rgb1:B", "r3:2", "blue", [ "v0" ] ],
+    [ "rgb1:COM", "esp:3V3", "black", [ "v0" ] ]
+  ],
+  "dependencies": {}
+}
